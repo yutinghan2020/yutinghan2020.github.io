@@ -112,16 +112,65 @@ yarn安装
 
 新建i18n文件夹
 
-![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426115530.png)
+  src
+
+  |
+
+   ——i18n
+
+   ``|
+
+   ```——config
+
+   `````|
+
+   ``````——zh.js
+
+   ```——index.js
 
 index.js
 
-![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426120230.png)
+	import Vue from 'vue';
+	import VueI18n from 'vue-i18n';
+	Vue.use(VueI18n);
+	//引入各个语言配置文件
+	import zh_CN from './config/zh';
+	import en_US from './config/en';
+	import localCache from '@/util/localCache'
+	//创建i18n实例
+	const i18n = new VueI18n({
+	  //设置默认语言
+	  locale: localCache.getLanguage()||"zh_CN",
+	  messages:{
+	    zh_CN,//中午
+	    en_US,//英文
+	  }
+	});
+	export default i18n;
 
 zh.js
 
-![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426141141.png)
+	const zh = {
+  	    submit:"提交"
+	};
+	default zh;			
 
 main.js
 
-![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426141339.png)
+	import i18n from './i18n/index';
+	
+	new Vue({
+	  router,
+	  store,
+	  i18n,
+	  render: h => h(App)
+	}).$mount('#app');
+
+使用
+
+	<span>{{$t("submit")}}</span>
+	
+	<script>
+		console.log(this.$t("submit"))
+	</script>
+
