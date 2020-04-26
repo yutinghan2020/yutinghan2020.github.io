@@ -62,6 +62,66 @@ npm安装
 
 ### vxe-table vue 表格解决方案 ###
 
-一个基于 vue 的 PC 端表格组件，支持增删改查、虚拟滚动、懒加载、快捷菜单、数据校验、树形结构、打印导出、表单渲染、数据分页、模态窗口、自定义模板、渲染器、贼灵活的配置项、扩展接口等...
+  一个基于 vue 的 PC 端表格组件，支持增删改查、虚拟滚动、懒加载、快捷菜单、数据校验、树形结构、打印导出、表单渲染、数据分页、模态窗口、自定义模板、渲染器、贼灵活的配置项、扩展接口等...
 
-官方文档：[https://xuliangzhan.github.io/vxe-table](https://xuliangzhan.github.io/vxe-table)
+  官方文档：[https://xuliangzhan.github.io/vxe-table](https://xuliangzhan.github.io/vxe-table)
+
+  推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
+
+  依赖库： xe-utils2.4+ vue2.6+
+
+  安装指南
+
+    npm install xe-utils vxe-table
+
+  全局引用 main.js中引入
+
+	  import Vue from 'vue'
+      import 'xe-utils'
+      import VXETable from 'vxe-table'
+      import 'vxe-table/lib/index.css'
+
+      Vue.use(VXETable)
+
+      // 给 vue 实例挂载全局窗口对象
+      Vue.prototype.$XModal = VXETable.modal
+
+  CDN引入
+
+	  <!-- 引入样式 -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table/lib/index.css">
+      <!-- 引入脚本 -->
+      <script src="https://cdn.jsdelivr.net/npm/xe-utils"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vxe-table"></script>
+
+全局参数
+
+	VXETable.setup({})
+
+### 国际化配置 ###
+
+前端配置国际化可以结合i18n来做。官方文档:[http://kazupon.github.io/vue-i18n/zh/](http://kazupon.github.io/vue-i18n/zh/)
+
+NPM安装
+
+	npm install vue-i18n
+
+yarn安装
+
+	yarn add vue-i18n
+
+新建i18n文件夹
+
+![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426115530.png)
+
+index.js
+
+![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426120230.png)
+
+zh.js
+
+![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426141141.png)
+
+main.js
+
+![](E:\workY\Templates\sheepdata\yutinghan2020博客\微信截图_20200426141339.png)
